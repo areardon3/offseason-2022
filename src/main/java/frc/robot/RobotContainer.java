@@ -4,9 +4,6 @@
 
 package frc.robot;
 
-import java.sql.Driver;
-
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
@@ -49,9 +46,9 @@ public class RobotContainer {
       .whenPressed(new InstantCommand(m_intakeSubsystem::stop)
       .andThen(new InstantCommand(m_pistonSubsystem::toggleSolenoids)));
       
-   
-    
-      
+    new JoystickButton(driver, XboxController.Button.kA.value)
+      .whenHeld(new InstantCommand(m_liftSubsystem::runLift))
+      .whenReleased(new InstantCommand(m_liftSubsystem::stop));
     
   }
 

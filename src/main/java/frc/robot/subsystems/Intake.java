@@ -19,6 +19,10 @@ public class Intake extends SubsystemBase {
     mMotor.set(Constants.kIntakeSpeed);
   }
 
+  public void stop() {
+    mMotor.set(0);
+  }
+
   @Override 
   public void periodic() {
    
